@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="../css/login_screen.css">
+
+  </head>
+  <body>
+    <div class="main" id="main_cnt">
+      <div class="container a-container" id="a-container">
+        <form class="form" id="a-form" method="" action="">
+          <h2 class="form_title title">Hesap Oluştur</h2>
+          <span class="form__span">Veya kayıt için e-postayı kullanın!</span>
+          <input class="form__input" type="text" placeholder="Adınız Soyadınız">
+          <input class="form__input" type="text" placeholder="Email">
+          <input class="form__input" type="text" placeholder="Telefon">
+          <input class="form__input" type="text" placeholder="Firma Adı">
+          <input class="form__input" type="password" placeholder="Şifre">
+          <input class="form__input" type="password" placeholder="Şifreyi onayla">
+          <button class="form__button button submit">Kayıt Ol</button>
+          <button class="form__button button " id="btn_signin" onclick="phone_signin()">Oturum aç</button>
+         
+        </form>
+      </div>
+      <div class="container b-container" id="b-container">
+        <form class="form" id="b-form" method="" action="">
+          <h2 class="form_title title">Oturum Aç</h2>
+          <span class="form__span">Veya e-posta hesabınızı kullanın</span>
+          <input class="form__input" type="text" placeholder="Email">
+          <input class="form__input" type="password" placeholder="Şifre"><a class="form__link">Şifreni mi Unuttun?</a>
+          <button class="form__button button submit">Giriş</button>
+          <button class="form__button button " id="btn_signup" onclick="phone_signup()">Kayıt ol</button>
+        </form>
+      </div>
+      <div class="switch" id="switch-cnt">
+        <div class="switch__circle"></div>
+        <div class="switch__circle switch__circle--t"></div>
+        <div class="switch__container" id="switch-c1">
+          <h2 class="switch__title title">Hoşgeldiniz !</h2>
+          <p class="switch__description description">Bizimle bağlantıda kalmak için lütfen kişisel bilgilerinizle giriş yapın</p>
+          <button class="switch__button button switch-btn">Giriş</button>
+        </div>
+        <div class="switch__container is-hidden" id="switch-c2">
+          <h2 class="switch__title title">Merhaba !</h2>
+          <p class="switch__description description">Kişisel bilgilerinizi girin ve bizimle yolculuğa başlayın</p>
+          <button class="switch__button button switch-btn">Kayıt Ol</button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/function.js"></script>
+  </body>
+</html>
