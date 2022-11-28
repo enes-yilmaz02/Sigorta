@@ -15,7 +15,8 @@ const database = firebase.database()
 user = document.querySelector('#user');//id=user
 sigorta = document.querySelector('#sigorta');//id=sigorta
 danisman = document.querySelector('#danisman');//id=danisman
-
+icerik = document.querySelector('#innerhtml');
+thFirma = document.querySelector('#firma');
 //fonk. register for firebase
 function register() {
   //get radio Buttons (other ways to do this too)
@@ -126,6 +127,7 @@ function registerDanisman() {
         name_surname: name_surname,
         password: password,
         phone: phone,
+        firma_name: firma_name,
         last_login: Date.now()
       }
 
@@ -190,6 +192,7 @@ function registerSigorta() {
     name_surname: name_surname,
     password: password,
     phone: phone,
+    firma_name: firma_name,
     last_login: Date.now()
   }
 
@@ -283,8 +286,6 @@ function checkEmail() {
     alert('email doğru formatta');
   }
 }
-
-
 //phone Kontrol Fonksiyonu
 function checkPhone() {
   phone = document.querySelector('#phone');//id=phone
@@ -298,13 +299,17 @@ function checkPhone() {
     alert(' numara  doğru formatta');
   }
 }
-
 ////////////////////////////////////////////////////
 /*FİREBASE CRUD OPERASYONLARI */
-function readWithGet() {
+
+//User get users
+function readWithGetUser() {
+  clearTable();
+  icerik.innerHTML = "Kullanıcı Tablosu";
+  thFirma.style.display = "none";
   var leadsRef = database.ref('users');
-leadsRef.once('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
+  leadsRef.once('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
       //Create html elements, TRs, TD,s etc.
       var row = document.createElement("tr");
       var col1 = document.createElement("td");
@@ -321,12 +326,85 @@ leadsRef.once('value', function(snapshot) {
       row.appendChild(col2);
       row.appendChild(col3);
       row.appendChild(col4);
-      tableBody.appendChild(row);
+      table.appendChild(row);
     });
-});
+  });
 
 }
 
+//Sigorta get users
+function readWithGetSigorta() {
+  clearTable();
+  icerik.innerHTML = " Sigorta Firması Kullanıcı Tablosu";
+  thFirma.style.display = "block";
+  var leadsRef = database.ref('sigorta');
+  leadsRef.once('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      //Create html elements, TRs, TD,s etc.
+      var row = document.createElement("tr");
+      var col1 = document.createElement("td");
+      var col2 = document.createElement("td");
+      var col3 = document.createElement("td");
+      var col4 = document.createElement("td");
+      var col5 = document.createElement("td");
+      //Add data to the new elements.
+      col1.innerText = childSnapshot.child("name_surname").val();
+      col2.innerText = childSnapshot.child("email").val();
+      col3.innerText = childSnapshot.child("password").val();
+      col4.innerText = childSnapshot.child("firma_name").val();
+      col5.innerText = childSnapshot.child("phone").val();
+      //Append the cells into the row and the row into the table body.
+      row.appendChild(col1);
+      row.appendChild(col2);
+      row.appendChild(col3);
+      row.appendChild(col4);
+      row.appendChild(col5);
+      table.appendChild(row);
+    });
+  });
+
+}
+
+//Danışman get users
+function readWithGetDanisman() {
+  clearTable();
+  icerik.innerHTML = "Danışman Firması Kullanıcı Tablosu";
+  thFirma.style.display = "block";
+  var leadsRef = database.ref('danisman');
+  leadsRef.once('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+     
+      //Create html elements, TRs, TD,s etc.
+      var row = document.createElement("tr");
+      var col1 = document.createElement("td");
+      var col2 = document.createElement("td");
+      var col3 = document.createElement("td");
+      var col4 = document.createElement("td");
+      var col5 = document.createElement("td");
+      //Add data to the new elements.
+      col1.innerText = childSnapshot.child("name_surname").val();
+      col2.innerText = childSnapshot.child("email").val();
+      col3.innerText = childSnapshot.child("password").val();
+      col4.innerText = childSnapshot.child("firma_name").val();
+      col5.innerText = childSnapshot.child("phone").val();
+      //Append the cells into the row and the row into the table body.
+      row.appendChild(col1);
+      row.appendChild(col2);
+      row.appendChild(col3);
+      row.appendChild(col4);
+      row.appendChild(col5);
+      table.appendChild(row);
+      
+
+    });
+  });
+
+}
+
+function clearTable() {
+  var Table = document.querySelector("#table");
+  Table.innerHTML = "";
+}
 // function readOnceWithGet(userId) {
 //   // [START rtdb_read_once_get]
 //   const dbRef = firebase.database().ref();

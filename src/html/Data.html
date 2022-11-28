@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/tabs.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script
+        src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>
+        Sigorta Satın Alma Kullanıcı Ekranı
+        Lütfen Kullaanıcı Türünü Seçiniz
+    </legend>
+
+
+    <div>
+        <input type="radio"  id="user" onclick="readWithGetUser()" name="registerRadio"
+            value="1"
+            checked>
+        <label for="user">Kullanıcı Tablosu</label>
+    </div>
+
+    <div>
+        <input type="radio" id="sigorta" onclick="readWithGetSigorta() " name="registerRadio" value="2">
+        <label for="sigorta">Sigorta Firması Kullanıcı Tablosu</label>
+    </div>
+
+    <div>
+        <input type="radio" id="danisman" onclick=" readWithGetDanisman() " name="registerRadio"  value="3">
+        <label for="danisman">Danışman Firması Kullanıcı Tablosu</label>
+    </div>
+</fieldset>
+<h2 id="innerhtml">Sigorta Firması Kullanıcı Tablosu</h2>
+<table class="table table-striped" >
+    <thead>
+      <tr>
+        <th>AD SOYAD</th>
+        <th>Email</th>
+        <th>Şifre</th>
+        <th id="firma">Firma adı</th>
+        <th>Telefon</th>
+      </tr>
+    </thead>
+    <tbody id="table">
+
+    </tbody>
+</table>
+      <script src="../js/firebase.js"></script>
+</body>
+</html>
