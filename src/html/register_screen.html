@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/tabs.css">
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+        <script src="../js/function.js"></script>
+        <script src="../js/firebase.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="../js/smtp.js"></script>
+        <title>Kayıt Ekranı</title>
+        
+    </head>
+    <body>
+        <fieldset>
+            <legend>
+                Sigorta Satın Alma Kayıt Ekranı
+                Lütfen Kayıt Türünü Seçiniz
+            </legend>
+
+
+            <div>
+                <input type="radio"  id="user" onclick="clickUser()" name="registerRadio"
+                    value="1"
+                    checked>
+                <label for="user">Kullanıcı Kayıt</label>
+            </div>
+
+            <div>
+                <input type="radio" id="sigorta" onclick="clickSigorta()" name="registerRadio" value="2">
+                <label for="sigorta">Sigorta Firması Kayıt</label>
+            </div>
+
+            <div>
+                <input type="radio" id="danisman" onclick="clickDanisman()" name="registerRadio"  value="3">
+                <label for="danisman">Danışman Firması Kayıt</label>
+            </div>
+        </fieldset>
+        <div class="container a-container" id="a-container">
+            <form class="form" id="register" >
+                <h2 class="form_title title" id="innerHtml"> Kullanıcı  Hesap Oluştur</h2>
+                <span class="form__span">Veya kayıt için e-postayı
+                    kullanınız!</span>
+                <input class="form__input" type="text" id="name_surname"
+                    placeholder="Adınız Soyadınız" required>
+                <input class="form__input" type="email" id="email"
+                    placeholder="Email:mymail@gmail.com"
+                    required>
+                <input class="form__input" type="text" id="phone" name="phone"
+                    placeholder="Telefon:1234567889" required>
+                    
+                <input class="form__input" type="text" id="firma_name"
+                    placeholder="Firma Adı" required style="display: none;">
+                <input class="form__input" type="password" id="password"
+                    placeholder="Şifre" required>
+                <button class="form__button button " type="button"
+                    onclick="register()">Kayıt Ol</button>
+                <a href="login_screen.html">
+                    <button class="form__button button " id="btn_signin"
+                        type="button"
+                        onclick="">Oturum aç</button>
+                </a>
+            </form>
+        </div>
+      
+    </body>
+    <script src="../js/registerChange.js"></script>
+</html>
